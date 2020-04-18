@@ -70,31 +70,31 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <configuration>
-                    <!-- 定义镜像名 -->
-                    <imageName>${project.artifactId}:${project.version}</imageName>
-                    <!-- 基础镜像，编译为镜像时会下载jdk-->
-                    <baseImage>java</baseImage>
-                    <workdir>/</workdir>
-                    <cmd>["java", "-version"]</cmd>
-                    <!-- 相当于 java -jar  jenkins.jar-->
-                    <entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
+<!--            <plugin>-->
+<!--                <groupId>com.spotify</groupId>-->
+<!--                <artifactId>docker-maven-plugin</artifactId>-->
+<!--                <version>1.0.0</version>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash; 定义镜像名 &ndash;&gt;-->
+<!--                    <imageName>${project.artifactId}:${project.version}</imageName>-->
+<!--                    &lt;!&ndash; 基础镜像，编译为镜像时会下载jdk&ndash;&gt;-->
+<!--                    <baseImage>java</baseImage>-->
+<!--                    <workdir>/</workdir>-->
+<!--                    <cmd>["java", "-version"]</cmd>-->
+<!--                    &lt;!&ndash; 相当于 java -jar  jenkins.jar&ndash;&gt;-->
+<!--                    <entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>-->
 
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
-                    <!-- 远程docker地址 没有配置docker远程访问的需要配置一下 -->
-                    <dockerHost>http://118.190.2.114:2374</dockerHost>
-                </configuration>
-            </plugin>
+<!--                    <resources>-->
+<!--                        <resource>-->
+<!--                            <targetPath>/</targetPath>-->
+<!--                            <directory>${project.build.directory}</directory>-->
+<!--                            <include>${project.build.finalName}.jar</include>-->
+<!--                        </resource>-->
+<!--                    </resources>-->
+<!--                    &lt;!&ndash; 远程docker地址 没有配置docker远程访问的需要配置一下 &ndash;&gt;-->
+<!--                    <dockerHost>http://118.190.2.114:2374</dockerHost>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
