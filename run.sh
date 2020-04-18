@@ -1,17 +1,3 @@
-
-if [ $MANAGE_CMS == true ];then
-  removeDocker manage_cms
-  if [ $? -eq 0 ];then
-    sudo docker build -t manage_cms:$VERSION -f xc-service-manage-cms/config/dockerfile .
-    if [ $? -eq 0 ];then
-      startDocker manage_cms 31001
-    else
-      echo "manage_cms build fail"
-    fi
-  fi
-fi
-
-
 function removeDocker(){
     dockerPs=`sudo docker ps | grep -w $1 | head -n 1 | awk '{print $1}'`
     if [ "$dockerPs" != "" ];then
@@ -48,3 +34,15 @@ function startDocker(){
         echo "$1 容器已启动"
   fi
 }
+
+if [ $MANAGE_CMS == true ];then
+  removeDocker manage_cms
+  if [ $? -eq 0 ];then
+    sudo docker build -t manage_cms:$VERSION -f xc-service-manage-cms/config/dockerfile .
+    if [ $? -eq 0 ];then
+      startDocker manage_cms 31001
+    else
+      echo "manage_cms build fail"
+    fi
+  fi
+fi
