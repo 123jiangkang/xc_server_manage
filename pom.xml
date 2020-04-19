@@ -18,7 +18,7 @@
         <module>xc-framework-utils</module>
         <module>xc-framework-model</module>
         <module>xc-service-api</module>
-<!--        <module>../eureka_server</module>-->
+        <module>xc_eureka_server</module>
         <module>xc-service-manage-cms</module>
     </modules>
     <properties>

@@ -35,6 +35,19 @@ function startDocker(){
   fi
 }
 
+# 启动 eureka_server
+if [ $EUREKA_SERVER == true ];then
+  removeDocker eureka_server
+  if [ $? -eq 0 ];then
+    sudo docker build -t eureka_server:$VERSION -f xc_eureka_server/config/dockerfile .
+    if [ $? -eq 0 ];then
+      startDocker eureka_server 50101
+    else
+      echo "eureka_server build fail"
+    fi
+  fi
+fi
+
 if [ $MANAGE_CMS == true ];then
   removeDocker manage_cms
   if [ $? -eq 0 ];then
@@ -46,3 +59,4 @@ if [ $MANAGE_CMS == true ];then
     fi
   fi
 fi
+
