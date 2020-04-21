@@ -60,7 +60,7 @@ if [ $MANAGE_CMS == true ];then
   fi
 fi
 # 启动fdfs
-if [ $MANAGE_CMS == true ];then
+if [ $FDFS == true ];then
   removeDocker fdfs
   if [ $? -eq 0 ];then
     sudo docker build -t fdfs:$VERSION -f xc-service-fdfs/config/dockerfile .
