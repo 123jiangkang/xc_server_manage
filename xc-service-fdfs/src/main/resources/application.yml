@@ -1,0 +1,11 @@
+server:
+  port: 31002
+spring:
+  application:
+    name: xc-service-fdfs
+eureka:
+  client:
+    register-with-eureka: true #是否注册服务
+    fetch-registry: true #是否发现服务
+    service-url:
+      defaultZone: http://118.190.2.114:50101/eureka # 默认服务地址

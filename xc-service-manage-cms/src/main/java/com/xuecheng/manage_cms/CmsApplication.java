@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
@@ -32,6 +33,7 @@ import javax.validation.Valid;
 @SpringBootApplication
 @Import({Swagger2Configuration.class})
 @EntityScan("com.xuecheng.framework.domain.cms")//扫描实体类
+@EnableEurekaClient
 @ComponentScan(basePackages = "com.xuecheng")
 @ComponentScan(basePackages = "com.xuecheng.framework")
 public class CmsApplication {

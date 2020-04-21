@@ -47,7 +47,7 @@ if [ $EUREKA_SERVER == true ];then
     fi
   fi
 fi
-
+# 启动cms
 if [ $MANAGE_CMS == true ];then
   removeDocker manage_cms
   if [ $? -eq 0 ];then
@@ -59,4 +59,15 @@ if [ $MANAGE_CMS == true ];then
     fi
   fi
 fi
-
+# 启动fdfs
+if [ $MANAGE_CMS == true ];then
+  removeDocker fdfs
+  if [ $? -eq 0 ];then
+    sudo docker build -t fdfs:$VERSION -f xc-service-fdfs/config/dockerfile .
+    if [ $? -eq 0 ];then
+      startDocker fdfs 31002
+    else
+      echo "fdfs build fail"
+    fi
+  fi
+fi

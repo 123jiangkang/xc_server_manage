@@ -20,6 +20,7 @@
         <module>xc-service-api</module>
         <module>xc_eureka_server</module>
         <module>xc-service-manage-cms</module>
+        <module>xc-service-fdfs</module>
     </modules>
     <properties>
         <java.version>1.8</java.version>
