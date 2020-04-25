@@ -8,4 +8,10 @@ eureka:
     register-with-eureka: true #是否注册服务
     fetch-registry: true #是否发现服务
     service-url:
-      defaultZone: http://118.190.2.114:50101/eureka # 默认服务地址
+      defaultZone: http://localhost:50101/eureka # 默认服务地址
+ribbon:
+  MaxAutoRetries: 2 #最大重试次数，当eureka发现服务但是连接不上服务的时候会进行重试
+  MaxAutoRetriesNextServer: 3 #切换实列的重试次数
+  OkToRetryOnAllOperations: false #对所有的操作请求都进行重试，如果是get则可以，如果是post，put等操作是很危险的，所以这个设置为false
+  ConnectTimeout: 5000
+  ReadTime: 6000

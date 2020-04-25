@@ -92,4 +92,8 @@ public class CmsPageController implements CmsPageControllerApi {
         return  new CmsPageResult(cmsPage==null?CommonCode.FAIL:CommonCode.SUCCESS,cmsPage);
     }
 
+    @GetMapping("/test")
+    public CmsPageResult getTest(){
+        return  new CmsPageResult(CommonCode.SUCCESS,null);
+    }
 }
